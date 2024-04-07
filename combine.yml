@@ -11,7 +11,7 @@ data:
       slack_configs:
       - channel: '#week-1-project'
         send_resolved: true
-        api_url: 'https://hooks.slack.com/services/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'
+        api_url: 'https://hooks.slack.com/services/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'
       email_configs:
       - to: youremail@gmail.com
         from: youremail@gmail.com
