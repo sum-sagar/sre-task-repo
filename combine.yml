@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-alertmanager
+data:
+  alertmanager.yml: |
+    global:
+      resolve_timeout: 1m
+    receivers:
+    - name: 'prom-alerts'
+      slack_configs:
+      - channel: '#project'
+        send_resolved: true
+        api_url: 'https://hooks.slack.com/services/XXXXXXXXXXXXXXXX'
+      email_configs:
+      - to: youremail@gmail.com
+        from: youremail@gmail.com
+        smarthost: smtp.gmail.com:587
+        auth_username: youremail@gmail.com
+        auth_identity: youremail@gmail.com
+        auth_password: xxxx xxxx xxxx xxxx
+        send_resolved: true
+        headers:
+          subject: "Prometheus - Alert"
+          text: "{{ range .Alerts }} Hi, \n{{ .Annotations.summary }}\n{{ .Annotations.description }} {{end}}"
+    route:
+      group_wait: 10s
+      group_interval: 2m
+      receiver: 'prom-alerts'
+      repeat_interval: 2m
