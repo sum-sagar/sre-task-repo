@@ -9,9 +9,9 @@ data:
     receivers:
     - name: 'prom-alerts'
       slack_configs:
-      - channel: '#project'
+      - channel: '#week-1-project'
         send_resolved: true
-        api_url: 'https://hooks.slack.com/services/XXXXXXXXXXXXXXXX'
+        api_url: 'https://hooks.slack.com/services/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'
       email_configs:
       - to: youremail@gmail.com
         from: youremail@gmail.com
